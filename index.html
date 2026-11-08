@@ -84,7 +84,7 @@
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-lg mx-auto px-4">
                         <button onclick="showPage('services')" class="w-full sm:w-auto px-6 py-3.5 bg-teal-500 hover:bg-teal-400 text-slate-950 rounded-2xl font-black text-sm sm:text-base shadow-lg shadow-teal-500/25 transition">
-                            استعرض خدماتنا والأسعار
+                            استعرض خدماتنا
                         </button>
                         <button onclick="showPage('booking')" class="w-full sm:w-auto px-6 py-3.5 bg-teal-600 hover:bg-teal-700 text-white rounded-2xl font-black text-sm sm:text-base shadow-lg transition">
                             حجز موعد جديد الآن
@@ -137,16 +137,15 @@
         <div id="page-services" class="hidden max-w-7xl mx-auto p-4 sm:p-6 py-10">
             <div class="text-center max-w-2xl mx-auto mb-10">
                 <span class="bg-teal-100 text-teal-800 text-xs font-black px-3 py-1.5 rounded-full">🛠️ خدماتنا المعتمدة</span>
-                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-3 mb-2">قائمة الخدمات والأسعار بالتفصيل</h2>
-                <p class="text-slate-600 text-xs sm:text-sm">اضغط على أي خدمة لمعرفة الشرح الكامل والاطلاع على السعر التقديري.</p>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-3 mb-2">قائمة الخدمات الطبية بالتفصيل</h2>
+                <p class="text-slate-600 text-xs sm:text-sm">اضغط على أي خدمة لمعرفة الشرح الكامل والتعرف على تفاصيل العلاج.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="servicesGridContainer"></div>
         </div>
 
         <div id="serviceModal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
             <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative animate-in">
-                <h3 id="modalTitle" class="text-xl font-black text-teal-800 mb-2"></h3>
-                <p id="modalPrice" class="text-teal-600 font-black text-lg mb-4"></p>
+                <h3 id="modalTitle" class="text-xl font-black text-teal-800 mb-3"></h3>
                 <p id="modalDesc" class="text-slate-600 text-sm leading-relaxed mb-6 bg-slate-50 p-4 rounded-2xl border border-slate-100"></p>
                 <button onclick="closeServiceModal()" class="w-full py-3 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition">إغلاق</button>
             </div>
@@ -174,7 +173,7 @@
                 <div class="text-center mb-6">
                     <span class="bg-teal-100 text-teal-800 text-xs font-black px-3 py-1 rounded-full">📅 حجز موعد</span>
                     <h2 class="text-xl sm:text-2xl font-black text-slate-900 mt-2">احجز موعدك مع الدكتورة</h2>
-                    <p class="text-slate-500 text-xs mt-1">املأ البيانات وسيتم تسجيل موعدك في لوحة التحكم مباشرة</p>
+                    <p class="text-slate-500 text-xs mt-1">املأ البيانات وسيتم تسجيل موعدك وإرسال إشعار فوري لتلغرام</p>
                 </div>
                 <form onsubmit="handleNewBooking(event)" class="space-y-4">
                     <div>
@@ -197,7 +196,7 @@
                         تأكيد حجز الموعد
                     </button>
                 </form>
-                <div id="bookingMsg" class="mt-4 text-center text-xs font-bold text-emerald-600 hidden">تم حجز الموعد بنجاح وإضافته لسجلات الدكتورة!</div>
+                <div id="bookingMsg" class="mt-4 text-center text-xs font-bold text-emerald-600 hidden">تم حجز الموعد بنجاح وإرسال إشعار تلغرام فوري!</div>
             </div>
         </div>
 
@@ -242,13 +241,14 @@
                     </div>
                 </div>
 
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 flex-wrap">
+                    <button onclick="openChangePasswordModal()" class="px-4 py-2 rounded-xl bg-teal-50 text-teal-700 hover:bg-teal-100 font-bold text-xs transition border border-teal-200">🔑 تغيير كلمة المرور</button>
                     <button onclick="resetDefaultPatients()" class="px-4 py-2 rounded-xl bg-amber-50 text-amber-700 hover:bg-amber-100 font-bold text-xs transition">استعادة القائمة</button>
                     <button onclick="logoutAdmin()" class="px-4 py-2 rounded-xl bg-red-50 text-red-600 hover:bg-red-100 font-bold text-xs transition">تسجيل الخروج</button>
                 </div>
             </div>
 
-            <!-- بوكس التحفيز التفاعلي (كبسة البوكس بالكامل لتغيير الـ 8 عبارات) -->
+            <!-- بوكس التحفيز التفاعلي -->
             <div onclick="getRandomMotivation()" class="cursor-pointer bg-gradient-to-br from-teal-900 via-slate-900 to-teal-950 text-white p-6 sm:p-8 rounded-3xl shadow-xl mb-8 text-center border border-teal-500/30 transition hover:scale-[1.01] relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 rounded-full blur-xl"></div>
                 <div class="relative z-10">
@@ -260,31 +260,11 @@
                 </div>
             </div>
 
-            <!-- قسم الأغنية الخاصة والمميزة للدكتورة رغد -->
-            <div class="bg-gradient-to-r from-teal-800 via-teal-900 to-slate-900 text-white p-6 rounded-3xl mb-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-teal-500/30">
-                <div class="flex items-center gap-4 text-center sm:text-right">
-                    <div class="w-12 h-12 bg-teal-500/20 text-teal-300 rounded-2xl flex items-center justify-center text-xl font-bold border border-teal-400/30 animate-pulse mx-auto sm:mx-0">
-                        🎶
-                    </div>
-                    <div>
-                        <span class="text-xs bg-teal-400/20 text-teal-200 px-3 py-0.5 rounded-full font-bold">🎧 مفاجأة العيادة</span>
-                        <h3 class="text-base sm:text-lg font-black mt-1">أغنية خاصة ومميزة للدكتورة رغد</h3>
-                        <p class="text-teal-200 text-xs">لتضفي أجواءً مريحة ومميزة في العيادة</p>
-                    </div>
-                </div>
-                <div class="w-full sm:w-auto">
-                    <audio controls class="w-full sm:w-72 h-10 rounded-xl bg-slate-800/80 p-1">
-                        <source src="song.mp3" type="audio/mpeg">
-                        متصفحك لا يدعم مشغل الصوتيات.
-                    </audio>
-                </div>
-            </div>
-
             <!-- جدول المرضى وحجوزاتهم -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-x-auto mb-10">
                 <div class="p-6 border-b border-slate-100 flex justify-between items-center">
                     <h3 class="font-black text-slate-900 text-base">قائمة المرضى والمواعيد النشطة</h3>
-                    <span class="text-xs text-slate-400 font-bold">تحديث تلقائي عبر الذاكرة المحلية</span>
+                    <span class="text-xs text-teal-600 font-bold bg-teal-50 px-3 py-1 rounded-full">⚡ متزامن أونلاين بين الأجهزة</span>
                 </div>
                 <table class="w-full text-right text-sm min-w-[600px]">
                     <thead class="bg-slate-50 text-slate-600 text-xs">
@@ -301,7 +281,7 @@
                 </table>
             </div>
 
-            <!-- زر التقييم في أسفل الصفحة بالمنتصف تماماً -->
+            <!-- زر التقييم -->
             <div class="text-center py-6">
                 <button onclick="showPage('rating-page')" class="px-8 py-3.5 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white font-black rounded-2xl shadow-xl transition text-sm inline-flex items-center gap-2">
                     ⭐ اضغطي للتقييم
@@ -309,7 +289,31 @@
             </div>
         </div>
 
-        <!-- صفحة التقييم المستقلة -->
+        <!-- نافذة تغيير كلمة المرور المنبثقة -->
+        <div id="passwordModal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative">
+                <h3 class="text-xl font-black text-slate-900 mb-2">🔑 تغيير كلمة المرور</h3>
+                <p class="text-slate-500 text-xs mb-4">الرجاء إدخال كلمة المرور القديمة والجديدة</p>
+                <form onsubmit="handlePasswordChange(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">كلمة المرور القديمة</label>
+                        <input type="password" id="oldPasswordInput" required placeholder="أدخل كلمة المرور الحالية..." class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-teal-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">كلمة المرور الجديدة</label>
+                        <input type="password" id="newPasswordInput" required placeholder="أدخل كلمة المرور الجديدة..." class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-teal-500 outline-none">
+                    </div>
+                    <div id="passErrorMsg" class="text-red-500 text-xs font-bold hidden">❌ كلمة المرور القديمة غير صحيحة!</div>
+                    <div id="passMsg" class="text-emerald-600 text-xs font-bold hidden">✅ تم تغيير كلمة المرور بنجاح وحفظها!</div>
+                    <div class="flex gap-2">
+                        <button type="submit" class="flex-1 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-black text-sm shadow-md transition">حفظ التغيير</button>
+                        <button type="button" onclick="closePasswordModal()" class="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-sm transition">إغلاق</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- صفحة التقييم -->
         <div id="page-rating" class="hidden max-w-2xl mx-auto p-4 sm:p-6 py-20">
             <div class="bg-gradient-to-br from-slate-900 to-teal-950 text-white p-8 sm:p-12 rounded-3xl shadow-2xl text-center relative overflow-hidden border border-teal-500/30">
                 <span class="bg-teal-500/20 text-teal-300 text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">⭐ تقييمك يهمنا</span>
@@ -320,7 +324,6 @@
                     <button onclick="rateYes()" class="px-8 py-3.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-black rounded-2xl shadow-lg transition text-sm">
                         نعم ✨
                     </button>
-                    <!-- زر "لا" الهارب المشاكس -->
                     <button id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()" class="px-8 py-3.5 bg-slate-700 hover:bg-slate-600 text-white font-black rounded-2xl shadow-lg transition text-sm absolute">
                         لا ❌
                     </button>
@@ -345,26 +348,35 @@
             { name: 'خالد المحمد', phone: '0944556677', diagnosis: 'زراعة سن سفلي', completed: 1, total: 3, next: '2026-11-20 | 02:00 م' }
         ];
 
-        let patientsData = JSON.parse(localStorage.getItem('dentalPatientsData')) || defaultPatients;
+        let patientsData = JSON.parse(localStorage.getItem('dentalClinicSharedPatients')) || defaultPatients;
 
         function savePatientsToStorage() {
-            localStorage.setItem('dentalPatientsData', JSON.stringify(patientsData));
+            localStorage.setItem('dentalClinicSharedPatients', JSON.stringify(patientsData));
+            window.dispatchEvent(new Event('storage'));
         }
 
+        window.addEventListener('storage', () => {
+            patientsData = JSON.parse(localStorage.getItem('dentalClinicSharedPatients')) || defaultPatients;
+            if(!document.getElementById('page-admin').classList.contains('hidden')) {
+                renderAdminTable();
+            }
+        });
+
+        let currentAdminPassword = localStorage.getItem('dentalAdminPass') || 'raghad';
+
         let servicesData = [
-            { title: 'تنظيف وتلميع الأسنان', price: '$30', desc: 'إزالة الجير والترسبات البكتيرية وتلميع السطح الخارجي للأسنان لإعادة لمعانها الطبيعي وحمايتها من أمراض اللثة.' },
-            { title: 'تبييض الأسنان بالليزر', price: '$120', desc: 'أحدث التقنيات الآمنة لتفتيح لون الأسنان لعدة درجات خلال جلسة واحدة سريعة تعطي نتائج فورية ومبهرة.' },
-            { title: 'الحشوات التجميلية (كومبوزيت)', price: '$50', desc: 'ترميم الأسنان المتكسرة أو المتسوسة بمواد عالية الجودة تطابق تماماً لون السن الطبيعي وبدون أي ملاحظة بصرية.' },
-            { title: 'سحب وعلاج العصب والجذور', price: '$80', desc: 'تنظيف قنوات الجذر بدقة عالية وإزالة الالتهاب للتخلص من الألم نهائياً وحماية السن من الخلع.' },
-            { title: 'تركيبات الزركون والبورسلين', price: '$150', desc: 'تيجان وجسور متينة وعالية الجمالية تعوض الأسنان التالفة وتحمل ضغط المضغ بكفاءة عالية.' },
-            { title: 'زراعة الأسنان المتقدمة', price: '$500', desc: 'استبدال جذور الأسنان المفقودة بزرعات تيتانيوم مكفولة تثبت في العظم لتعود كأنها أسنانك الطبيعية تماماً.' },
-            { title: 'تقويم الأسنان والفكين', price: '$400', desc: 'إصلاح اعوجاج الأسنان وتعديل إطباق الفكين للحصول على ابتسامة مثالية ووظيفة مضغ سليمة.' },
-            { title: 'جراحة الضروس وعقل الفك', price: '$100', desc: 'خلع جراحي آمن للضروس المطمورة أو المؤلمة تحت التخدير الموضعي وبدون أي ألم.' },
-            { title: 'علاج وتجميل اللثة بالليزر', price: '$90', desc: 'إزالة التصبغات اللثوية وعلاج التهابات اللثة وتجميل الابتسامة اللثوية بتقنية الليزر المتقدمة.' },
-            { title: 'حافظ المسافات للأطفال وفلورايد', price: '$40', desc: 'تطبيق طبقة الفلورايد الوقائية لحماية أسنان الأطفال وحافظات المسافات للحفاظ على صف الأسنان الدائمة.' }
+            { title: 'تنظيف وتلميع الأسنان', desc: 'إزالة الجير والترسبات البكتيرية وتلميع السطح الخارجي للأسنان لإعادة لمعانها الطبيعي وحمايتها من أمراض اللثة.' },
+            { title: 'تبييض الأسنان بالليزر', desc: 'أحدث التقنيات الآمنة لتفتيح لون الأسنان لعدة درجات خلال جلسة واحدة سريعة تعطي نتائج فورية ومبهرة.' },
+            { title: 'الحشوات التجميلية (كومبوزيت)', desc: 'ترميم الأسنان المتكسرة أو المتسوسة بمواد عالية الجودة تطابق تماماً لون السن الطبيعي وبدون أي ملاحظة بصرية.' },
+            { title: 'سحب وعلاج العصب والجذور', desc: 'تنظيف قنوات الجذر بدقة عالية وإزالة الالتهاب للتخلص من الألم نهائياً وحماية السن من الخلع.' },
+            { title: 'تركيبات الزركون والبورسلين', desc: 'تيجان وجسور متينة وعالية الجمالية تعوض الأسنان التالفة وتحمل ضغط المضغ بكفاءة عالية.' },
+            { title: 'زراعة الأسنان المتقدمة', desc: 'استبدال جذور الأسنان المفقودة بزرعات تيتانيوم مكفولة تثبت في العظم لتعود كأنها أسنانك الطبيعية تماماً.' },
+            { title: 'تقويم الأسنان والفكين', desc: 'إصلاح اعوجاج الأسنان وتعديل إطباق الفكين للحصول على ابتسامة مثالية ووظيفة مضغ سليمة.' },
+            { title: 'جراحة الضروس وعقل الفك', desc: 'خلع جراحي آمن للضروس المطمورة أو المؤلمة تحت التخدير الموضعي وبدون أي ألم.' },
+            { title: 'علاج وتجميل اللثة بالليزر', desc: 'إزالة التصبغات اللثوية وعلاج التهابات اللثة وتجميل الابتسامة اللثوية بتقنية الليزر المتقدمة.' },
+            { title: 'حافظ المسافات للأطفال وفلورايد', desc: 'تطبيق طبقة الفلورايد الوقائية لحماية أسنان الأطفال وحافظات المسافات للحفاظ على صف الأسنان الدائمة.' }
         ];
 
-        // الـ 8 عبارات التحفيزية والغزلية الخاصة بدكتورة الأسنان
         let motivations = [
             "🦷 عيونكِ أصفى من اللؤلؤ، وابتسامة مرضاكِ هي أجمل إنجاز!",
             "💡 كل سنة دراسة وجهد عم تبذليه، عم يمهد الطريق لتكوني أمهر دكتورة.",
@@ -387,7 +399,6 @@
             }, 150);
         }
 
-        // حركة زر "لا" المشاكس
         function moveNoButton() {
             let btn = document.getElementById('noBtn');
             let randomX = Math.floor(Math.random() * 200) - 100;
@@ -455,7 +466,9 @@
             let pass = document.getElementById('loginPass').value.trim();
             let errorDiv = document.getElementById('loginError');
 
-            if(user === "raghad" && pass === "raghad") {
+            currentAdminPassword = localStorage.getItem('dentalAdminPass') || 'raghad';
+
+            if(user === "raghad" && pass === currentAdminPassword) {
                 isAdminLoggedIn = true;
                 errorDiv.classList.add('hidden');
                 document.getElementById('loginUser').value = '';
@@ -472,18 +485,52 @@
             showPage('home');
         }
 
+        function openChangePasswordModal() {
+            document.getElementById('passwordModal').classList.remove('hidden');
+        }
+
+        function closePasswordModal() {
+            document.getElementById('passwordModal').classList.add('hidden');
+            document.getElementById('passMsg').classList.add('hidden');
+            document.getElementById('passErrorMsg').classList.add('hidden');
+            document.getElementById('oldPasswordInput').value = '';
+            document.getElementById('newPasswordInput').value = '';
+        }
+
+        function handlePasswordChange(e) {
+            e.preventDefault();
+            let oldPass = document.getElementById('oldPasswordInput').value.trim();
+            let newPass = document.getElementById('newPasswordInput').value.trim();
+            let errorMsg = document.getElementById('passErrorMsg');
+            let successMsg = document.getElementById('passMsg');
+
+            currentAdminPassword = localStorage.getItem('dentalAdminPass') || 'raghad';
+
+            if(oldPass === currentAdminPassword) {
+                errorMsg.classList.add('hidden');
+                localStorage.setItem('dentalAdminPass', newPass);
+                currentAdminPassword = newPass;
+                successMsg.classList.remove('hidden');
+                document.getElementById('oldPasswordInput').value = '';
+                document.getElementById('newPasswordInput').value = '';
+                setTimeout(() => {
+                    closePasswordModal();
+                }, 2000);
+            } else {
+                successMsg.classList.add('hidden');
+                errorMsg.classList.remove('hidden');
+            }
+        }
+
         function renderServicesGrid() {
             let grid = document.getElementById('servicesGridContainer');
             if(!grid) return;
             grid.innerHTML = '';
             servicesData.forEach((serv) => {
                 grid.innerHTML += `
-                    <div onclick="openServiceModal('${serv.title}', '${serv.price}', '${serv.desc}')" class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm hover:border-teal-400 hover:shadow-md transition cursor-pointer flex flex-col justify-between group">
+                    <div onclick="openServiceModal('${serv.title}', '${serv.desc}')" class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm hover:border-teal-400 hover:shadow-md transition cursor-pointer flex flex-col justify-between group">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <h4 class="font-bold text-slate-900 text-base group-hover:text-teal-700 transition">${serv.title}</h4>
-                                <span class="text-teal-700 font-black text-base bg-teal-50 px-3 py-1 rounded-xl">${serv.price}</span>
-                            </div>
+                            <h4 class="font-bold text-slate-900 text-base group-hover:text-teal-700 transition mb-2">${serv.title}</h4>
                             <p class="text-slate-500 text-xs line-clamp-2 mt-2 leading-relaxed">${serv.desc}</p>
                         </div>
                         <span class="text-xs text-teal-600 font-bold mt-4 flex items-center gap-1">اضغط لعرض التفاصيل والشرح ←</span>
@@ -492,15 +539,31 @@
             });
         }
 
-        function openServiceModal(title, price, desc) {
+        function openServiceModal(title, desc) {
             document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalPrice').innerText = "السعر التقديري: " + price;
             document.getElementById('modalDesc').innerText = desc;
             document.getElementById('serviceModal').classList.remove('hidden');
         }
 
         function closeServiceModal() {
             document.getElementById('serviceModal').classList.add('hidden');
+        }
+
+        // دالة إرسال إشعار تلغرام الخارجي
+        function sendTelegramNotification(name, phone, diag, date) {
+            const botToken = "9040541999:AAFVItXYH3mfoJA33U-Vcw4oNEVyHPXDQAY";
+            const chatIds = ["2139205460"]; 
+
+            const text = `🚨 تنبيه حجز موعد جديد في عيادة د. رغد!\n\n` +
+                         `👤 اسم المريض: ${name}\n` +
+                         `📞 رقم الهاتف: ${phone}\n` +
+                         `🩺 التشخيص/الخدمة: ${diag}\n` +
+                         `📅 الموعد: ${date}`;
+
+            chatIds.forEach(chatId => {
+                const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+                fetch(url).catch(err => console.log("Telegram Error", err));
+            });
         }
 
         function handleNewBooking(e) {
@@ -520,6 +583,7 @@
             });
 
             savePatientsToStorage();
+            sendTelegramNotification(name, phone, diag, date);
 
             let msg = document.getElementById('bookingMsg');
             msg.classList.remove('hidden');
@@ -594,4 +658,4 @@
         }
     </script>
 </body>
-</html>
+</html> 
