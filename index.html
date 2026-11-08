@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيادة الدكتورة رغد الشواخ لطب الأسنان</title>
+    <!-- استدعاء مكتبة التصاميم Tailwind CSS وخريطة الخطوط -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Tajawal', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- الهيدر وأزرار التصفح -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('home')">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-teal-600 via-teal-500 to-cyan-500 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-teal-500/25">
+                    🦷
+                </div>
+                <div>
+                    <span class="text-xl sm:text-2xl font-black bg-gradient-to-r from-teal-700 via-cyan-600 to-teal-900 bg-clip-text text-transparent">
+                        د. رغد الشواخ
+                    </span>
+                    <span class="block text-[11px] text-slate-400 font-bold tracking-wide">مركز طب وتجميل الأسنان</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-1 sm:gap-2">
+                <button onclick="showPage('home')" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-teal-50 text-teal-700 transition">الرئيسية</button>
+                <button onclick="showPage('about')" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:bg-slate-100 transition">📖 لمحة عنا</button>
+                <button onclick="showPage('services')" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:bg-slate-100 transition">🛠️ خدماتنا</button>
+                <button onclick="showPage('patient')" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:bg-slate-100 transition">👤 بوابة المريض</button>
+                <button onclick="showPage('booking')" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-teal-600 hover:bg-teal-50 transition border border-teal-200">📅 حجز موعد</button>
+                <button onclick="showPage('admin-login')" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-white shadow-md hover:bg-slate-800 transition">🔐 لوحة الدكتورة</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main>
+        
+        <!-- 1. صفحة الرئيسية -->
+        <div id="page-home" class="animate-in fade-in duration-300">
+            <section class="relative overflow-hidden bg-gradient-to-b from-teal-950 via-slate-900 to-slate-950 text-white py-24 px-4 sm:px-6 lg:px-8">
+                <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#2dd4bf_1px,transparent_1px)] [background-size:24px_24px]"></div>
+                
+                <div class="max-w-4xl mx-auto text-center relative z-10">
+                    <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs sm:text-sm font-bold mb-8 shadow-sm">
+                        ✨ العناية المتكاملة وصحة ابتسامتك في أيدٍ أمينة
+                    </span>
+
+                    <div class="mb-6">
+                        <span class="block text-slate-300 text-lg sm:text-2xl font-bold mb-3 tracking-wide">عيادة الأسنان التخصصية بإشراف</span>
+                        <h1 class="text-4xl sm:text-7xl font-black tracking-tight leading-tight">
+                            الدكتورة <span class="bg-gradient-to-r from-teal-300 via-cyan-200 to-teal-400 bg-clip-text text-transparent drop-shadow-sm">رغد الشواخ</span>
+                        </h1>
+                    </div>
+
+                    <p class="text-slate-300 text-base sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+                        نقدم أحدث التقنيات العلاجية والتجميلية بخبرة فائقة وبيئة مريحة، لنضمن لك ابتسامة صحية، مشرقة، ودائمة.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-lg mx-auto">
+                        <button onclick="showPage('services')" class="w-full sm:w-auto px-8 py-4 bg-teal-500 hover:bg-teal-400 text-slate-950 rounded-2xl font-black text-base shadow-lg shadow-teal-500/25 transition">
+                            استعرض خدماتنا والأسعار
+                        </button>
+                        <button onclick="showPage('booking')" class="w-full sm:w-auto px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white rounded-2xl font-black text-base shadow-lg transition">
+                            حجز موعد جديد الآن
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- قسم تواصل سريع وموقع العيادة -->
+            <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
+                        <div class="text-2xl mb-2">🕒</div>
+                        <h4 class="font-bold text-slate-900 mb-1">أوقات العمل</h4>
+                        <p class="text-slate-500 text-xs">السبت - الخميس: 9:00 صباحاً - 8:00 مساءً</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
+                        <div class="text-2xl mb-2">📍</div>
+                        <h4 class="font-bold text-slate-900 mb-1">موقع العيادة</h4>
+                        <p class="text-slate-500 text-xs font-bold">سوريا - منبج - مركز المدينة</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
+                        <div class="text-2xl mb-2">📞</div>
+                        <h4 class="font-bold text-slate-900 mb-1">رقم التواصل والحجز</h4>
+                        <p class="text-teal-700 font-black text-sm mt-1" dir="ltr">0997476579</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 2. صفحة "لمحة عنا" (تم حذف كلمة منبج من العنوان والنص هنا) -->
+        <div id="page-about" class="hidden max-w-4xl mx-auto p-4 sm:p-6 py-16">
+            <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-40 h-40 bg-teal-50 rounded-bl-full -z-0 opacity-50"></div>
+                
+                <div class="relative z-10">
+                    <span class="bg-teal-100 text-teal-800 text-xs font-black px-3.5 py-1.5 rounded-full inline-block mb-4">🌟 لمحة عنا</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-6">عيادة الدكتورة رغد الشواخ لطب وتجميل الأسنان</h2>
+                    
+                    <div class="space-y-4 text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
+                        <p>
+                            تأسست عيادتنا التخصصية بإشراف مباشر من <strong class="text-teal-700">الدكتورة رغد الشواخ</strong> لتكون صرحاً طبياً متكاملاً يجمع بين دقة التشخيص العلاجي وأحدث صيحات التجميل السني عالمياً.
+                        </p>
+                        <p>
+                            نؤمن بأن الابتسامة الجميلة هي انعكاس للصحة والثقة بالنفس، ولهذا نحرص على توفير بيئة علاجية مريحة، وأحدث أجهزة التعقيم والتصوير والتقنيات الليزرية لضمان خلو الجلسات من أي ألم وتقديم نتائج استثنائية لكل مراجع.
+                        </p>
+                        <p class="text-slate-900 font-bold bg-teal-50/80 p-4 rounded-2xl border border-teal-100">
+                            "رعايتكم، راحتكم، وابتسامتكم الناصعة هي الغاية التي نعمل لأجلها بكل تفانٍ واحترافية." — د. رغد الشواخ
+                        </p>
+                    </div>
+
+                    <div class="mt-8 flex gap-4">
+                        <button onclick="showPage('services')" class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-bold text-sm shadow-md transition">تصفح خدماتنا الآن</button>
+                        <button onclick="showPage('patient')" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-sm transition">بوابة المريض والمواعيد</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. صفحة "خدماتنا" (الـ 10 خدمات) -->
+        <div id="page-services" class="hidden max-w-7xl mx-auto p-4 sm:p-6 py-12">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="bg-teal-100 text-teal-800 text-xs font-black px-3 py-1.5 rounded-full">🛠️ خدماتنا المعتمدة</span>
+                <h2 class="text-3xl font-black text-slate-900 mt-3 mb-3">قائمة الخدمات والأسعار بالتفصيل</h2>
+                <p class="text-slate-600 text-sm">اضغط على أي خدمة لمعرفة الشرح الكامل والاطلاع على السعر التقديري.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="servicesGridContainer"></div>
+        </div>
+
+        <!-- نافذة عرض تفاصيل الخدمة Modal -->
+        <div id="serviceModal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative animate-in">
+                <h3 id="modalTitle" class="text-xl font-black text-teal-800 mb-2"></h3>
+                <p id="modalPrice" class="text-teal-600 font-black text-lg mb-4"></p>
+                <p id="modalDesc" class="text-slate-600 text-sm leading-relaxed mb-6 bg-slate-50 p-4 rounded-2xl border border-slate-100"></p>
+                <button onclick="closeServiceModal()" class="w-full py-3 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition">إغلاق</button>
+            </div>
+        </div>
+
+        <!-- 4. صفحة بوابة المريض (استعلام) -->
+        <div id="page-patient" class="hidden max-w-4xl mx-auto p-4 sm:p-6 py-16">
+            <div class="bg-gradient-to-r from-teal-900 to-slate-900 text-white p-8 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden">
+                <div class="relative z-10 text-center max-w-xl mx-auto">
+                    <span class="bg-teal-500/20 text-teal-300 text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">👤 بوابة المريض الخاصة</span>
+                    <h2 class="text-2xl sm:text-3xl font-black mb-3">استعلم عن موعد مراجعتك وجلساتك</h2>
+                    <p class="text-teal-200 text-sm mb-6">أدخل اسمك الكامل أو رقم هاتفك لمعرفة تفاصيل علاجك وموعدك القادم (مثال: محمد محمد أو 0934036223)</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input type="text" id="searchInput" placeholder="ادخل اسم المريض أو رقم الهاتف..." class="px-4 py-3.5 rounded-xl text-slate-900 flex-1 outline-none text-sm font-semibold shadow-md">
+                        <button onclick="searchPatient()" class="px-8 py-3.5 bg-teal-400 text-slate-950 font-black rounded-xl hover:bg-teal-300 transition shadow-md">بحث عن الموعد</button>
+                    </div>
+                    <div id="searchResult" class="mt-6 text-right text-sm font-medium"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. صفحة حجز موعد جديد -->
+        <div id="page-booking" class="hidden max-w-md mx-auto p-4 py-16">
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl">
+                <div class="text-center mb-6">
+                    <span class="bg-teal-100 text-teal-800 text-xs font-black px-3 py-1 rounded-full">📅 حجز موعد</span>
+                    <h2 class="text-2xl font-black text-slate-900 mt-2">احجز موعدك مع الدكتورة</h2>
+                    <p class="text-slate-500 text-xs mt-1">املأ البيانات وسيتم تسجيل موعدك في لوحة التحكم مباشرة</p>
+                </div>
+
+                <form onsubmit="handleNewBooking(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">اسم المريض الكامل</label>
+                        <input type="text" id="bookName" required placeholder="مثال: خالد العلي" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-teal-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف</label>
+                        <input type="text" id="bookPhone" required placeholder="09XXXXXXXX" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-teal-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">الخدمة المطلوبة أو التشخيص</label>
+                        <input type="text" id="bookDiag" required placeholder="مثال: حشوة تجميلية" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-teal-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">الموعد المفضل</label>
+                        <input type="text" id="bookDate" required placeholder="مثال: بعد غد الساعة 5 عصراً" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-teal-500 outline-none">
+                    </div>
+                    <button type="submit" class="w-full py-3.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-black text-sm shadow-lg shadow-teal-600/20 transition">
+                        تأكيد حجز الموعد
+                    </button>
+                </form>
+                <div id="bookingMsg" class="mt-4 text-center text-xs font-bold text-emerald-600 hidden">تم حجز الموعد بنجاح وإضافته لسجلات الدكتورة!</div>
+            </div>
+        </div>
+
+        <!-- 6. صفحة تسجيل دخول الدكتورة -->
+        <div id="page-admin-login" class="hidden max-w-md mx-auto px-4 py-20">
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl">
+                <div class="text-center mb-6">
+                    <div class="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-3 font-bold">🔐</div>
+                    <h2 class="text-2xl font-black text-slate-900">تسجيل دخول الدكتورة</h2>
+                    <p class="text-slate-500 text-xs mt-1">الرجاء إدخال اسم المستخدم وكلمة المرور للمتابعة</p>
+                </div>
+
+                <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">اسم المستخدم</label>
+                        <input type="text" id="loginUser" required placeholder="أدخل اسم المستخدم..." class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-teal-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">كلمة المرور</label>
+                        <input type="password" id="loginPass" required placeholder="أدخل كلمة المرور..." class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-teal-500 outline-none">
+                    </div>
+                    <div id="loginError" class="text-red-500 text-xs font-bold hidden">اسم المستخدم أو كلمة المرور غير صحيحة!</div>
+                    <button type="submit" class="w-full py-3.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-black text-sm shadow-lg shadow-teal-600/20 transition">
+                        تسجيل الدخول
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 7. لوحة تحكم الدكتورة (مع الأغنية الخاصة: هدية للدكتورة) -->
+        <div id="page-admin" class="hidden max-w-6xl mx-auto p-4 sm:p-6 py-6">
+            
+            <!-- قسم هدية الدكتورة (الأغنية الخاصة) -->
+            <div class="bg-gradient-to-r from-teal-800 via-teal-900 to-slate-900 text-white p-6 rounded-3xl mb-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-teal-500/30">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 bg-teal-500/20 text-teal-300 rounded-2xl flex items-center justify-center text-2xl font-bold border border-teal-400/30 animate-pulse">
+                        🎧
+                    </div>
+                    <div>
+                        <span class="text-xs bg-teal-400/20 text-teal-200 px-3 py-0.5 rounded-full font-bold">🎁 مفاجأة خاصة</span>
+                        <h3 class="text-lg font-black mt-1">هدية للدكتورة رغد الشواخ 🎶</h3>
+                        <p class="text-teal-200 text-xs">شعر خاص ومميز لإضفاء جو مريح وجميل في العيادة</p>
+                    </div>
+                </div>
+                
+                <!-- مشغل الصوتيات -->
+                <div class="w-full sm:w-auto">
+                    <audio controls class="w-full sm:w-72 h-10 rounded-xl bg-slate-800/80 p-1">
+                        <source src="poem.mp3" type="audio/mpeg">
+                        متصفحك لا يدعم مشغل الصوتيات.
+                    </audio>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                <div>
+                    <h2 class="text-2xl font-black text-slate-900">لوحة تحكم الدكتورة رغد الشواخ</h2>
+                    <p class="text-slate-500 text-sm mt-0.5">إدارة المرضى، الحجوزات، ومتابعة الجلسات الطبية</p>
+                </div>
+                <button onclick="logoutAdmin()" class="px-4 py-2 rounded-xl bg-red-50 text-red-600 hover:bg-red-100 font-bold text-xs transition">تسجيل الخروج</button>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                <table class="w-full text-right text-sm">
+                    <thead class="bg-slate-100 text-slate-600 text-xs">
+                        <tr>
+                            <th class="p-4">اسم المريض</th>
+                            <th class="p-4">رقم الهاتف</th>
+                            <th class="p-4">التشخيص / الخدمة</th>
+                            <th class="p-4">الجلسات المنجزة</th>
+                            <th class="p-4">موعد المراجعة</th>
+                            <th class="p-4 text-center">إجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody id="patientsTableBody" class="divide-y divide-slate-100">
+                        <!-- تعبئة البيانات عبر الجافاسكريبت -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- سكريبت البرمجة والتفاعل -->
+    <script>
+        let isAdminLoggedIn = false;
+
+        let patientsData = [
+            { name: 'محمد محمد', phone: '0934036223', diagnosis: 'علاج ضاحك ثاني علوي (باقي جلسة واحدة)', completed: 3, total: 4, next: 'غداً الساعة 08:30 صباحاً' },
+            { name: 'أحمد علي', phone: '0912345678', diagnosis: 'علاج عصب وتلبيس زركون', completed: 2, total: 4, next: '2026-11-12 | 04:00 م' },
+            { name: 'سارة التميمي', phone: '0987654321', diagnosis: 'تقويم أسنان + تبييض', completed: 5, total: 12, next: '2026-11-15 | 05:30 م' },
+            { name: 'خالد المحمد', phone: '0944556677', diagnosis: 'زراعة سن سفلي', completed: 1, total: 3, next: '2026-11-20 | 02:00 م' }
+        ];
+
+        let servicesData = [
+            { title: 'تنظيف وتلميع الأسنان', price: '$30', desc: 'إزالة الجير والترسبات البكتيرية المتراكمة وتلميع السطح الخارجي للأسنان لإعادة لمعانها الطبيعي وحمايتها من أمراض اللثة.' },
+            { title: 'تبييض الأسنان بالليزر', price: '$120', desc: 'أحدث التقنيات الآمنة لتفتيح لون الأسنان لعدة درجات خلال جلسة واحدة سريعة تعطي نتائج فورية ومبهرة.' },
+            { title: 'الحشوات التجميلية (كومبوزيت)', price: '$50', desc: 'ترميم الأسنان المتكسرة أو المتسوسة بمواد عالية الجودة تطابق تماماً لون السن الطبيعي وبدون أي ملاحظة بصرية.' },
+            { title: 'سحب وعلاج العصب والجذور', price: '$80', desc: 'تنظيف قنوات الجذر بدقة عالية وإزالة الالتهاب للتخلص من الألم نهائياً وحماية السن من الخلع.' },
+            { title: 'تركيبات الزركون والبورسلين', price: '$150', desc: 'تيجان وجسور متينة وعالية الجمالية تعوض الأسنان التالفة وتحمل ضغط المضغ بكفاءة عالية.' },
+            { title: 'زراعة الأسنان المتقدمة', price: '$500', desc: 'استبدال جذور الأسنان المفقودة بزرعات تيتانيوم مكفولة تثبت في العظم لتعود كأنها أسنانك الطبيعية تماماً.' },
+            { title: 'تقويم الأسنان والفكين', price: '$400', desc: 'إصلاح اعوجاج الأسنان وتعديل إطباق الفكين للحصول على ابتسامة مثالية ووظيفة مضغ سليمة.' },
+            { title: 'جراحة الضروس وعقل الفك', price: '$100', desc: 'خلع جراحي آمن للضروس المطمورة أو المؤلمة تحت التخدير الموضعي وبدون أي ألم.' },
+            { title: 'علاج وتجميل اللثة بالليزر', price: '$90', desc: 'إزالة التصبغات اللثوية وعلاج التهابات اللثة وتجميل الابتسامة اللثوية بتقنية الليزر المتقدمة.' },
+            { title: 'حافظ المسافات للأطفال وفلورايد', price: '$40', desc: 'تطبيق طبقة الفلورايد الوقائية لحماية أسنان الأطفال وحافظات المسافات للحفاظ على صف الأسنان الدائمة.' }
+        ];
+
+        window.onload = function() {
+            renderServicesGrid();
+        };
+
+        function showPage(pageId) {
+            if(pageId === 'admin' && !isAdminLoggedIn) {
+                pageId = 'admin-login';
+            }
+
+            document.getElementById('page-home').classList.add('hidden');
+            document.getElementById('page-about').classList.add('hidden');
+            document.getElementById('page-services').classList.add('hidden');
+            document.getElementById('page-patient').classList.add('hidden');
+            document.getElementById('page-booking').classList.add('hidden');
+            document.getElementById('page-admin-login').classList.add('hidden');
+            document.getElementById('page-admin').classList.add('hidden');
+            
+            document.getElementById('page-' + pageId).classList.remove('hidden');
+
+            if(pageId === 'admin') {
+                renderAdminTable();
+            }
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            let user = document.getElementById('loginUser').value.trim();
+            let pass = document.getElementById('loginPass').value.trim();
+            let errorDiv = document.getElementById('loginError');
+
+            if(user === "raghad" && pass === "raghad") {
+                isAdminLoggedIn = true;
+                errorDiv.classList.add('hidden');
+                document.getElementById('loginUser').value = '';
+                document.getElementById('loginPass').value = '';
+                showPage('admin');
+            } else {
+                errorDiv.classList.remove('hidden');
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            showPage('home');
+        }
+
+        function renderServicesGrid() {
+            let grid = document.getElementById('servicesGridContainer');
+            if(!grid) return;
+            grid.innerHTML = '';
+            servicesData.forEach((serv) => {
+                grid.innerHTML += `
+                    <div onclick="openServiceModal('${serv.title}', '${serv.price}', '${serv.desc}')" class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm hover:border-teal-400 hover:shadow-md transition cursor-pointer flex flex-col justify-between group">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-slate-900 text-base group-hover:text-teal-700 transition">${serv.title}</h4>
+                                <span class="text-teal-700 font-black text-base bg-teal-50 px-3 py-1 rounded-xl">${serv.price}</span>
+                            </div>
+                            <p class="text-slate-500 text-xs line-clamp-2 mt-2 leading-relaxed">${serv.desc}</p>
+                        </div>
+                        <span class="text-xs text-teal-600 font-bold mt-4 flex items-center gap-1">اضغط لعرض التفاصيل والشرح ←</span>
+                    </div>
+                `;
+            });
+        }
+
+        function openServiceModal(title, price, desc) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalPrice').innerText = "السعر التقديري: " + price;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('serviceModal').classList.remove('hidden');
+        }
+
+        function closeServiceModal() {
+            document.getElementById('serviceModal').classList.add('hidden');
+        }
+
+        function handleNewBooking(e) {
+            e.preventDefault();
+            let name = document.getElementById('bookName').value.trim();
+            let phone = document.getElementById('bookPhone').value.trim();
+            let diag = document.getElementById('bookDiag').value.trim();
+            let date = document.getElementById('bookDate').value.trim();
+
+            patientsData.push({
+                name: name,
+                phone: phone,
+                diagnosis: diag,
+                completed: 0,
+                total: 2,
+                next: date
+            });
+
+            let msg = document.getElementById('bookingMsg');
+            msg.classList.remove('hidden');
+            document.getElementById('bookName').value = '';
+            document.getElementById('bookPhone').value = '';
+            document.getElementById('bookDiag').value = '';
+            document.getElementById('bookDate').value = '';
+
+            setTimeout(() => {
+                msg.classList.add('hidden');
+                showPage('patient');
+            }, 2000);
+        }
+
+        function searchPatient() {
+            let query = document.getElementById('searchInput').value.trim().toLowerCase();
+            let resultDiv = document.getElementById('searchResult');
+            
+            if(!query) {
+                resultDiv.innerHTML = `<div class="bg-amber-500/20 text-amber-200 p-3 rounded-xl">يرجى كتابة اسم المريض أو رقم الهاتف للبحث.</div>`;
+                return;
+            }
+
+            let found = patientsData.find(p => p.name.toLowerCase().includes(query) || p.phone.includes(query));
+            if(found) {
+                resultDiv.innerHTML = `<div class="bg-white/10 p-5 rounded-2xl mt-3 border border-white/20 backdrop-blur-md">
+                    <strong class="text-teal-300 text-base block mb-1">👤 اسم المريض: ${found.name}</strong>
+                    <span class="block text-xs text-slate-300 mb-1">رقم الهاتف: ${found.phone}</span>
+                    <strong class="block text-xs text-slate-200 mb-1">التشخيص: ${found.diagnosis}</strong>
+                    <span class="block text-xs text-slate-200 mb-1">الجلسات المنفذة: ${found.completed} من ${found.total}</span>
+                    <strong class="block text-sm text-teal-200 mt-2">📅 موعد المراجعة القادم: ${found.next}</strong>
+                </div>`;
+            } else {
+                resultDiv.innerHTML = `<div class="bg-red-500/20 p-3 rounded-xl mt-3 text-red-200">لم يتم العثور على مريض بهذا الاسم أو الرقم.</div>`;
+            }
+        }
+
+        function renderAdminTable() {
+            let tbody = document.getElementById('patientsTableBody');
+            tbody.innerHTML = '';
+            patientsData.forEach((p, index) => {
+                let isFinished = p.completed >= p.total;
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-4 font-bold text-slate-900">${p.name}</td>
+                        <td class="p-4 text-slate-600">${p.phone}</td>
+                        <td class="p-4 text-slate-800">${p.diagnosis}</td>
+                        <td class="p-4 font-bold text-teal-700">${p.completed} / ${p.total} ${isFinished ? '<span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">مكتمل</span>' : ''}</td>
+                        <td class="p-4 text-slate-600">${p.next}</td>
+                        <td class="p-4 text-center">
+                            <button onclick="incrementSession(${index})" ${isFinished ? 'disabled' : ''} class="px-3 py-1.5 ${isFinished ? 'bg-slate-100 text-slate-400' : 'bg-teal-50 text-teal-700 hover:bg-teal-100'} rounded-lg text-xs font-bold border border-teal-200 transition">جلسة +1</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function incrementSession(index) {
+            if(patientsData[index].completed < patientsData[index].total) {
+                patientsData[index].completed++;
+                renderAdminTable();
+            }
+        }
+    </script>
+</body>
+</html>
