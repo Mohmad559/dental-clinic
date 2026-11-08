@@ -1,0 +1,13 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "عيادة الدكتورة رغد الشواخ",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "عيادة رغد",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "description": "مركز طبي وتجميل الاسنان",
+  "id": "com.raghad.clinice"
+}
