@@ -13,29 +13,47 @@
 </head>
 <body class="bg-slate-50 text-slate-800">
 
-    <!-- الهيدر وأزرار التصفح -->
+    <!-- الهيدر المتجاوب -->
     <header class="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-30 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('home')">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-teal-600 via-teal-500 to-cyan-500 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-teal-500/25">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-teal-600 via-teal-500 to-cyan-500 flex items-center justify-center text-white font-bold text-xl sm:text-2xl shadow-lg shadow-teal-500/25">
                     🦷
                 </div>
                 <div>
-                    <span class="text-xl sm:text-2xl font-black bg-gradient-to-r from-teal-700 via-cyan-600 to-teal-900 bg-clip-text text-transparent">
+                    <span class="text-base sm:text-2xl font-black bg-gradient-to-r from-teal-700 via-cyan-600 to-teal-900 bg-clip-text text-transparent">
                         د. رغد الشواخ
                     </span>
-                    <span class="block text-[11px] text-slate-400 font-bold tracking-wide">مركز طب وتجميل الأسنان</span>
+                    <span class="block text-[10px] sm:text-[11px] text-slate-400 font-bold tracking-wide">مركز طب وتجميل الأسنان</span>
                 </div>
             </div>
             
-            <div class="flex items-center gap-1 sm:gap-2">
-                <button onclick="showPage('home')" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-teal-50 text-teal-700 transition">الرئيسية</button>
-                <button onclick="showPage('about')" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:bg-slate-100 transition">📖 لمحة عنا</button>
-                <button onclick="showPage('services')" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:bg-slate-100 transition">🛠️ خدماتنا</button>
-                <button onclick="showPage('patient')" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 hover:bg-slate-100 transition">👤 بوابة المريض</button>
-                <button onclick="showPage('booking')" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold text-teal-600 hover:bg-teal-50 transition border border-teal-200">📅 حجز موعد</button>
-                <button onclick="showPage('admin-login')" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-slate-900 text-white shadow-md hover:bg-slate-800 transition">🔐 لوحة الدكتورة</button>
+            <!-- أزرار الحاسوب (تختفي على الجوال) -->
+            <div class="hidden md:flex items-center gap-2">
+                <button onclick="showPage('home')" class="px-3 py-2 rounded-xl text-sm font-bold bg-teal-50 text-teal-700 transition">الرئيسية</button>
+                <button onclick="showPage('about')" class="px-3 py-2 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-100 transition">📖 لمحة عنا</button>
+                <button onclick="showPage('services')" class="px-3 py-2 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-100 transition">🛠️ خدماتنا</button>
+                <button onclick="showPage('patient')" class="px-3 py-2 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-100 transition">👤 بوابة المريض</button>
+                <button onclick="showPage('booking')" class="px-3 py-2 rounded-xl text-sm font-bold text-teal-600 hover:bg-teal-50 transition border border-teal-200">📅 حجز موعد</button>
+                <button onclick="showPage('admin-login')" class="px-3 py-2 rounded-xl text-sm font-bold bg-slate-900 text-white shadow-md hover:bg-slate-800 transition">🔐 لوحة الدكتورة</button>
             </div>
+
+            <!-- زر القائمة للجوال (Hamburger Menu) -->
+            <div class="md:hidden flex items-center">
+                <button onclick="toggleMobileMenu()" class="p-2 rounded-xl bg-slate-100 text-slate-700 font-bold text-xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+        </div>
+
+        <!-- القائمة المنسدلة للجوال -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2 shadow-lg">
+            <button onclick="showPage('home'); toggleMobileMenu();" class="block w-full text-right px-4 py-2 rounded-xl text-sm font-bold bg-teal-50 text-teal-700">الرئيسية</button>
+            <button onclick="showPage('about'); toggleMobileMenu();" class="block w-full text-right px-4 py-2 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-100">📖 لمحة عنا</button>
+            <button onclick="showPage('services'); toggleMobileMenu();" class="block w-full text-right px-4 py-2 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-100">🛠️ خدماتنا</button>
+            <button onclick="showPage('patient'); toggleMobileMenu();" class="block w-full text-right px-4 py-2 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-100">👤 بوابة المريض</button>
+            <button onclick="showPage('booking'); toggleMobileMenu();" class="block w-full text-right px-4 py-2 rounded-xl text-sm font-bold text-teal-600 bg-teal-50">📅 حجز موعد</button>
+            <button onclick="showPage('admin-login'); toggleMobileMenu();" class="block w-full text-right px-4 py-2 rounded-xl text-sm font-bold bg-slate-900 text-white">🔐 لوحة الدكتورة</button>
         </div>
     </header>
 
@@ -44,30 +62,30 @@
         
         <!-- 1. صفحة الرئيسية -->
         <div id="page-home" class="animate-in fade-in duration-300">
-            <section class="relative overflow-hidden bg-gradient-to-b from-teal-950 via-slate-900 to-slate-950 text-white py-24 px-4 sm:px-6 lg:px-8">
+            <section class="relative overflow-hidden bg-gradient-to-b from-teal-950 via-slate-900 to-slate-950 text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
                 <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#2dd4bf_1px,transparent_1px)] [background-size:24px_24px]"></div>
                 
                 <div class="max-w-4xl mx-auto text-center relative z-10">
-                    <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs sm:text-sm font-bold mb-8 shadow-sm">
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-300 text-xs sm:text-sm font-bold mb-6 shadow-sm">
                         ✨ العناية المتكاملة وصحة ابتسامتك في أيدٍ أمينة
                     </span>
 
                     <div class="mb-6">
-                        <span class="block text-slate-300 text-lg sm:text-2xl font-bold mb-3 tracking-wide">عيادة الأسنان التخصصية بإشراف</span>
-                        <h1 class="text-4xl sm:text-7xl font-black tracking-tight leading-tight">
+                        <span class="block text-slate-300 text-base sm:text-2xl font-bold mb-2 tracking-wide">عيادة الأسنان التخصصية بإشراف</span>
+                        <h1 class="text-3xl sm:text-7xl font-black tracking-tight leading-tight">
                             الدكتورة <span class="bg-gradient-to-r from-teal-300 via-cyan-200 to-teal-400 bg-clip-text text-transparent drop-shadow-sm">رغد الشواخ</span>
                         </h1>
                     </div>
 
-                    <p class="text-slate-300 text-base sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+                    <p class="text-slate-300 text-sm sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed font-normal px-2">
                         نقدم أحدث التقنيات العلاجية والتجميلية بخبرة فائقة وبيئة مريحة، لنضمن لك ابتسامة صحية، مشرقة، ودائمة.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-lg mx-auto">
-                        <button onclick="showPage('services')" class="w-full sm:w-auto px-8 py-4 bg-teal-500 hover:bg-teal-400 text-slate-950 rounded-2xl font-black text-base shadow-lg shadow-teal-500/25 transition">
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-lg mx-auto px-4">
+                        <button onclick="showPage('services')" class="w-full sm:w-auto px-6 py-3.5 bg-teal-500 hover:bg-teal-400 text-slate-950 rounded-2xl font-black text-sm sm:text-base shadow-lg shadow-teal-500/25 transition">
                             استعرض خدماتنا والأسعار
                         </button>
-                        <button onclick="showPage('booking')" class="w-full sm:w-auto px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white rounded-2xl font-black text-base shadow-lg transition">
+                        <button onclick="showPage('booking')" class="w-full sm:w-auto px-6 py-3.5 bg-teal-600 hover:bg-teal-700 text-white rounded-2xl font-black text-sm sm:text-base shadow-lg transition">
                             حجز موعد جديد الآن
                         </button>
                     </div>
@@ -75,8 +93,8 @@
             </section>
 
             <!-- قسم تواصل سريع وموقع العيادة -->
-            <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <section class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                     <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
                         <div class="text-2xl mb-2">🕒</div>
                         <h4 class="font-bold text-slate-900 mb-1">أوقات العمل</h4>
@@ -96,41 +114,41 @@
             </section>
         </div>
 
-        <!-- 2. صفحة "لمحة عنا" (تم حذف كلمة منبج من العنوان والنص هنا) -->
-        <div id="page-about" class="hidden max-w-4xl mx-auto p-4 sm:p-6 py-16">
-            <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xl p-8 sm:p-12 relative overflow-hidden">
+        <!-- 2. صفحة "لمحة عنا" -->
+        <div id="page-about" class="hidden max-w-4xl mx-auto p-4 sm:p-6 py-12">
+            <div class="bg-white rounded-3xl border border-slate-200/80 shadow-xl p-6 sm:p-12 relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-40 h-40 bg-teal-50 rounded-bl-full -z-0 opacity-50"></div>
                 
                 <div class="relative z-10">
                     <span class="bg-teal-100 text-teal-800 text-xs font-black px-3.5 py-1.5 rounded-full inline-block mb-4">🌟 لمحة عنا</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-6">عيادة الدكتورة رغد الشواخ لطب وتجميل الأسنان</h2>
+                    <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mb-6">عيادة الدكتورة رغد الشواخ لطب وتجميل الأسنان</h2>
                     
-                    <div class="space-y-4 text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
+                    <div class="space-y-4 text-slate-600 text-sm sm:text-lg leading-relaxed font-medium">
                         <p>
                             تأسست عيادتنا التخصصية بإشراف مباشر من <strong class="text-teal-700">الدكتورة رغد الشواخ</strong> لتكون صرحاً طبياً متكاملاً يجمع بين دقة التشخيص العلاجي وأحدث صيحات التجميل السني عالمياً.
                         </p>
                         <p>
                             نؤمن بأن الابتسامة الجميلة هي انعكاس للصحة والثقة بالنفس، ولهذا نحرص على توفير بيئة علاجية مريحة، وأحدث أجهزة التعقيم والتصوير والتقنيات الليزرية لضمان خلو الجلسات من أي ألم وتقديم نتائج استثنائية لكل مراجع.
                         </p>
-                        <p class="text-slate-900 font-bold bg-teal-50/80 p-4 rounded-2xl border border-teal-100">
+                        <p class="text-slate-900 font-bold bg-teal-50/80 p-4 rounded-2xl border border-teal-100 text-xs sm:text-sm">
                             "رعايتكم، راحتكم، وابتسامتكم الناصعة هي الغاية التي نعمل لأجلها بكل تفانٍ واحترافية." — د. رغد الشواخ
                         </p>
                     </div>
 
-                    <div class="mt-8 flex gap-4">
-                        <button onclick="showPage('services')" class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-bold text-sm shadow-md transition">تصفح خدماتنا الآن</button>
-                        <button onclick="showPage('patient')" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-sm transition">بوابة المريض والمواعيد</button>
+                    <div class="mt-8 flex flex-col sm:flex-row gap-3">
+                        <button onclick="showPage('services')" class="w-full sm:w-auto px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-xl font-bold text-sm shadow-md transition">تصفح خدماتنا الآن</button>
+                        <button onclick="showPage('patient')" class="w-full sm:w-auto px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-sm transition">بوابة المريض والمواعيد</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- 3. صفحة "خدماتنا" (الـ 10 خدمات) -->
-        <div id="page-services" class="hidden max-w-7xl mx-auto p-4 sm:p-6 py-12">
-            <div class="text-center max-w-2xl mx-auto mb-12">
+        <div id="page-services" class="hidden max-w-7xl mx-auto p-4 sm:p-6 py-10">
+            <div class="text-center max-w-2xl mx-auto mb-10">
                 <span class="bg-teal-100 text-teal-800 text-xs font-black px-3 py-1.5 rounded-full">🛠️ خدماتنا المعتمدة</span>
-                <h2 class="text-3xl font-black text-slate-900 mt-3 mb-3">قائمة الخدمات والأسعار بالتفصيل</h2>
-                <p class="text-slate-600 text-sm">اضغط على أي خدمة لمعرفة الشرح الكامل والاطلاع على السعر التقديري.</p>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-3 mb-2">قائمة الخدمات والأسعار بالتفصيل</h2>
+                <p class="text-slate-600 text-xs sm:text-sm">اضغط على أي خدمة لمعرفة الشرح الكامل والاطلاع على السعر التقديري.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="servicesGridContainer"></div>
@@ -147,16 +165,16 @@
         </div>
 
         <!-- 4. صفحة بوابة المريض (استعلام) -->
-        <div id="page-patient" class="hidden max-w-4xl mx-auto p-4 sm:p-6 py-16">
-            <div class="bg-gradient-to-r from-teal-900 to-slate-900 text-white p-8 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden">
+        <div id="page-patient" class="hidden max-w-4xl mx-auto p-4 sm:p-6 py-12">
+            <div class="bg-gradient-to-r from-teal-900 to-slate-900 text-white p-6 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden">
                 <div class="relative z-10 text-center max-w-xl mx-auto">
                     <span class="bg-teal-500/20 text-teal-300 text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">👤 بوابة المريض الخاصة</span>
-                    <h2 class="text-2xl sm:text-3xl font-black mb-3">استعلم عن موعد مراجعتك وجلساتك</h2>
-                    <p class="text-teal-200 text-sm mb-6">أدخل اسمك الكامل أو رقم هاتفك لمعرفة تفاصيل علاجك وموعدك القادم (مثال: محمد محمد أو 0934036223)</p>
+                    <h2 class="text-xl sm:text-3xl font-black mb-3">استعلم عن موعد مراجعتك وجلساتك</h2>
+                    <p class="text-teal-200 text-xs sm:text-sm mb-6">أدخل اسمك الكامل أو رقم هاتفك لمعرفة تفاصيل علاجك وموعدك القادم (مثال: محمد محمد أو 0934036223)</p>
                     
                     <div class="flex flex-col sm:flex-row gap-3">
                         <input type="text" id="searchInput" placeholder="ادخل اسم المريض أو رقم الهاتف..." class="px-4 py-3.5 rounded-xl text-slate-900 flex-1 outline-none text-sm font-semibold shadow-md">
-                        <button onclick="searchPatient()" class="px-8 py-3.5 bg-teal-400 text-slate-950 font-black rounded-xl hover:bg-teal-300 transition shadow-md">بحث عن الموعد</button>
+                        <button onclick="searchPatient()" class="px-6 py-3.5 bg-teal-400 text-slate-950 font-black rounded-xl hover:bg-teal-300 transition shadow-md">بحث عن الموعد</button>
                     </div>
                     <div id="searchResult" class="mt-6 text-right text-sm font-medium"></div>
                 </div>
@@ -164,11 +182,11 @@
         </div>
 
         <!-- 5. صفحة حجز موعد جديد -->
-        <div id="page-booking" class="hidden max-w-md mx-auto p-4 py-16">
-            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl">
+        <div id="page-booking" class="hidden max-w-md mx-auto p-4 py-12">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl">
                 <div class="text-center mb-6">
                     <span class="bg-teal-100 text-teal-800 text-xs font-black px-3 py-1 rounded-full">📅 حجز موعد</span>
-                    <h2 class="text-2xl font-black text-slate-900 mt-2">احجز موعدك مع الدكتورة</h2>
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 mt-2">احجز موعدك مع الدكتورة</h2>
                     <p class="text-slate-500 text-xs mt-1">املأ البيانات وسيتم تسجيل موعدك في لوحة التحكم مباشرة</p>
                 </div>
 
@@ -198,11 +216,11 @@
         </div>
 
         <!-- 6. صفحة تسجيل دخول الدكتورة -->
-        <div id="page-admin-login" class="hidden max-w-md mx-auto px-4 py-20">
-            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xl">
+        <div id="page-admin-login" class="hidden max-w-md mx-auto p-4 py-16">
+            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl">
                 <div class="text-center mb-6">
-                    <div class="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-3 font-bold">🔐</div>
-                    <h2 class="text-2xl font-black text-slate-900">تسجيل دخول الدكتورة</h2>
+                    <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-3 font-bold">🔐</div>
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900">تسجيل دخول الدكتورة</h2>
                     <p class="text-slate-500 text-xs mt-1">الرجاء إدخال اسم المستخدم وكلمة المرور للمتابعة</p>
                 </div>
 
@@ -227,15 +245,15 @@
         <div id="page-admin" class="hidden max-w-6xl mx-auto p-4 sm:p-6 py-6">
             
             <!-- قسم هدية الدكتورة (الأغنية الخاصة) -->
-            <div class="bg-gradient-to-r from-teal-800 via-teal-900 to-slate-900 text-white p-6 rounded-3xl mb-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-teal-500/30">
-                <div class="flex items-center gap-4">
-                    <div class="w-14 h-14 bg-teal-500/20 text-teal-300 rounded-2xl flex items-center justify-center text-2xl font-bold border border-teal-400/30 animate-pulse">
+            <div class="bg-gradient-to-r from-teal-800 via-teal-900 to-slate-900 text-white p-5 sm:p-6 rounded-3xl mb-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-teal-500/30">
+                <div class="flex items-center gap-4 text-center sm:text-right">
+                    <div class="w-12 h-12 bg-teal-500/20 text-teal-300 rounded-2xl flex items-center justify-center text-xl font-bold border border-teal-400/30 animate-pulse mx-auto sm:mx-0">
                         🎧
                     </div>
                     <div>
                         <span class="text-xs bg-teal-400/20 text-teal-200 px-3 py-0.5 rounded-full font-bold">🎁 مفاجأة خاصة</span>
-                        <h3 class="text-lg font-black mt-1">هدية للدكتورة رغد الشواخ 🎶</h3>
-                        <p class="text-teal-200 text-xs">شعر خاص ومميز لإضفاء جو مريح وجميل في العيادة</p>
+                        <h3 class="text-base sm:text-lg font-black mt-1">هدية للدكتورة رغد الشواخ 🎶</h3>
+                        <p class="text-teal-200 text-xs">أغنية خاصة ومميزة لإضفاء جو مريح وجميل في العيادة</p>
                     </div>
                 </div>
                 
@@ -250,14 +268,15 @@
 
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                 <div>
-                    <h2 class="text-2xl font-black text-slate-900">لوحة تحكم الدكتورة رغد الشواخ</h2>
-                    <p class="text-slate-500 text-sm mt-0.5">إدارة المرضى، الحجوزات، ومتابعة الجلسات الطبية</p>
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900">لوحة تحكم الدكتورة رغد الشواخ</h2>
+                    <p class="text-slate-500 text-xs sm:text-sm mt-0.5">إدارة المرضى، الحجوزات، ومتابعة الجلسات الطبية</p>
                 </div>
                 <button onclick="logoutAdmin()" class="px-4 py-2 rounded-xl bg-red-50 text-red-600 hover:bg-red-100 font-bold text-xs transition">تسجيل الخروج</button>
             </div>
 
-            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-                <table class="w-full text-right text-sm">
+            <!-- جدول المرضى متجاوب -->
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-x-auto">
+                <table class="w-full text-right text-sm min-w-[600px]">
                     <thead class="bg-slate-100 text-slate-600 text-xs">
                         <tr>
                             <th class="p-4">اسم المريض</th>
@@ -304,6 +323,11 @@
         window.onload = function() {
             renderServicesGrid();
         };
+
+        function toggleMobileMenu() {
+            let menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
 
         function showPage(pageId) {
             if(pageId === 'admin' && !isAdminLoggedIn) {
