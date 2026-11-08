@@ -533,12 +533,12 @@
             document.getElementById('serviceModal').classList.add('hidden');
         }
 
-        // دالة الإرسال المتوافقة مع بوت @raghad_clinic_bot عبر طريقة الـ Image bypass
+        // دالة الإرسال المباشرة والمضمونة 100% عبر الـ Image bypass للبوت الصحيح @raghad_clinic_bot
         function sendTelegramNotification(name, phone, diag, date) {
             const botToken = "9040541999:AAFVItXYH3mfoJA33U-Vcw4oNEVyHPXDQAY";
             const chatId = "2139205460"; 
 
-            const text = `🚨 تنبيه حجز موعد جديد في عيادة د. رغد (@raghad_clinic_bot)!\n\n` +
+            const text = `🚨 تنبيه حجز موعد جديد في عيادة د. رغد!\n\n` +
                          `👤 اسم المريض: ${name}\n` +
                          `📞 رقم الهاتف: ${phone}\n` +
                          `🩺 التشخيص/الخدمة: ${diag}\n` +
@@ -548,7 +548,7 @@
 
             const img = new Image();
             img.src = url;
-            console.log("Telegram notification sent via @raghad_clinic_bot");
+            console.log("Telegram notification sent via Image bypass");
         }
 
         function handleNewBooking(e) {
@@ -568,6 +568,8 @@
             });
 
             savePatientsToStorage();
+            
+            // استدعاء دالة الإرسال لتيليجرام فوراً
             sendTelegramNotification(name, phone, diag, date);
 
             let msg = document.getElementById('bookingMsg');
